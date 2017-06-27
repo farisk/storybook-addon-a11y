@@ -11,7 +11,7 @@ class WrapStory extends Component {
 
   componentDidMount() {
     const { channel } = this.props;
-
+    
     axe.a11yCheck(this.wrapper, {}, (results) => {
       channel.emit('addon:a11y:check', results);
     });

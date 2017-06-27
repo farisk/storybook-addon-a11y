@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import { checkA11y } from './../../../src';
+import { checkA11yWithConfiguration } from './../../../src';
 
 import Button from './component';
 
@@ -10,7 +10,7 @@ import Faker from 'faker';
 const text = Faker.lorem.words();
 
 storiesOf('<Button />', module)
-  .addDecorator(checkA11y)
+  .addDecorator(checkA11yWithConfiguration({branding: {brand:"YO!BRAND",application:"YO!APPLICATION"}}))
   .add('Default', () => (
     <Button />
   ))

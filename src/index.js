@@ -1,5 +1,5 @@
 import addons from '@storybook/addons';
-
+import axe from 'axe-core';
 import A11yManager from './A11yManager';
 import * as shared from './shared'
 
@@ -10,7 +10,13 @@ function checkA11y(storyFn, context) {
   return manager.wrapStory(channel, storyFn, context);
 }
 
+function checkA11yWithConfiguration(configuration) {
+  axe.configure(configuration);
+  return checkA11y;
+}
+
 export {
   checkA11y,
+  checkA11yWithConfiguration,
   shared,
 };
